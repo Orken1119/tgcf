@@ -13,5 +13,7 @@ COPY . .
 RUN poetry build && \
     /venv/bin/pip install --upgrade pip wheel setuptools &&\
     /venv/bin/pip install dist/*.whl
+# Add this line to force the compatible Streamlit version
+RUN /venv/bin/pip install "streamlit==1.22.0"
 EXPOSE 8501
 CMD tgcf-web
